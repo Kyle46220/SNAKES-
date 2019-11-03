@@ -1,0 +1,33 @@
+<h1>Users#index</h1>
+<div class="page-wrapper">
+  <%= render "shared/nav" %>
+  <div class="content-area">
+    <div class="content-heading">
+      <h1> Users </h1>
+    </div>
+    <div class="content-body">
+      <table>
+        <thead>
+          <tr>
+            <th>User_id</th>
+            <th>Email</th>
+            <th>Role ID</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%=user.id %></td>
+              <td><%=user.email %></td>
+              <td><%=user.role_id %></td>
+              </tr>>
+            <%end%>
+          
+        </tbody>
+      </table>
+      <%= link_to 'new_user', users_new_path%>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,140 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ *{
+   color: rgb(23, 98, 211);
+   font-family: 'Rubik', sans-serif;
+   margin: 0;
+ }
+
+ .index {
+   display:block;
+   align-items: space-around;
+   justify-content: space-around;
+   flex-direction: column;
+   border-width: 3px;
+   border-color: fuchsia;
+   border-style: solid;
+   height:100px;
+  
+  
+   box-sizing: border_box;
+ }
+ .index img {
+   height: 100px;
+
+ }
+
+ .nav-wrapper {
+   color:fuchsia;
+   width: 100vw;
+   display:flex;
+   justify-content:space-between;
+   align-items: center;
+   border-bottom: 1px;
+   background-color: gold;
+ }
+
+ .links {
+   display:flex;
+   align-items:center;   
+   color: fuchsia;
+   justify-content:space-around;
+   padding:10px;
+
+ }
+ .links a{
+   padding:10px;
+ }
+ .logo {
+   padding: 10px;
+ }
+
+ .content-area {
+  
+ }
+ .content-body table {
+ width:100%;
+ border-style:solid;
+ border-color: violet;
+ border-width: 1px;
+   
+   
+ }
+
+ .content-body table tbody tr {
+  border-style:solid;
+  border-color: violet;
+  border-width: 1px;
+
+ }
+
+ .error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+ }
+
+ .home-image img {
+  width:500px;
+}
+
+.small-nav {
+  height: 25px;
+  background-color: tomato;
+  display:flex;
+  
+}
+
+.active_user {
+  display: flex;
+}
+
+.logout-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width:35%;
+}
+
+.logout-option a {
+  padding-left: 10px;
+}
+
+table {
+  text-align: center;
+}
+
+.show-image img {
+  display:flex;
+  flex-direction: column;
+  height: 300px;
+
+}
+
+.show-content {
+  display:flex;
+  justify-content: center;
+  padding-top: 20px;
+  
+}
+.show-details {
+  display: flex;
+  flex-direction:column;
+  justify-content: space-around;
+}

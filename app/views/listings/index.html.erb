@@ -1,0 +1,52 @@
+<div class="page-wrapper">
+  <%= render "shared/nav" %>
+  <div class="content-area">
+    <div class="content-heading">
+      <h1> INDEX PAGE </h1>
+    </div>
+    <div class="content-body">
+      <table>
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Breed</th>
+            <th>Sex</th>
+            <th>Price</th>
+            <th>Deposit</th>
+            <th>City</th>
+            <th>Date of birth</th>
+            <th>Diet</th>
+            <th colspan="7"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @listings.each do |listing| %>
+            <tr>
+              <td><div class="index"><% if listing.picture.attached?%>
+                  <%=image_tag listing.picture%>
+                <%end%></div></td>
+              <td><%=listing.title %></td>
+              <td><%=listing.description %></td>
+              <td><%=listing.breed.name %></td>
+              <td><%=listing.sex %></td>
+              <td>$<%=listing.price %></td>
+              <td>$<%=listing.deposit %></td>
+              <td><%=listing.city %></td>
+              <td><%=listing.date_of_birth %></td>
+              <td><%=listing.diet %></td>
+              <td><%= link_to "show", listing_path(listing)%></td>
+
+              <td><%if current_user.id == listing.user_id %>
+                <td><%= link_to "View", listing_path( listing )%></td>
+                <td><%= link_to "Edit", edit_listing_path(listing)%></td>
+                <td><%= link_to "Destroy", listing_path(listing), method: :delete, data:{confirm: "reeeeaaaallllyyy???"}%></td>
+              </tr>
+            <%end%>
+          <%end%>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SnakeMarketplace</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="small-nav">
+      <div class="logout-option">
+        <%if user_signed_in? %>
+          <%=link_to 'logout', destroy_user_session_path, method: :delete %>        
+            <p>Logged in as: <strong><%=current_user.email%></strong></p>
+          <%else%>
+            <%= link_to 'login', new_user_session_path%>
+          <%end%>
+        
+      </div>
+      <p class='notice'><%=notice%></p>
+      <p class='alert'><%=alert%></p>
+    </div>
+    <%= yield %>
+  </body>
+</html>

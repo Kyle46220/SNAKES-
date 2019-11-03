@@ -1,0 +1,66 @@
+<%= render "shared/nav"%>
+<h1>SHOW</h1>
+<div class="show-content">
+<div class="show-details">
+<p>
+<strong>title</strong>
+<%=@listing.title%>
+</p>
+<p>
+<strong>Description</strong>
+<%=@listing.description%>
+</p>
+<p>
+<strong>Price</strong>
+$<%=@listing.price%>
+</p>
+<p>
+<strong>Deposit</strong>
+$<%=@listing.deposit%>
+</p>
+<p>
+<strong>City</strong>
+<%=@listing.city%>
+</p>
+<p>
+<strong>State</strong>
+<%=@listing.state%>
+</p>
+<p>
+<strong>Date of Birth</strong>
+<%=@listing.date_of_birth%>
+</p>
+<p>
+<strong>Sex</strong>
+<%=@listing.sex%>
+</p>
+<p>
+<strong>Breed</strong>
+<%=@listing.breed.name%>
+</p>
+</div>
+
+<div class="show-image">
+
+
+<%=image_tag @listing.picture if @listing.picture.attached?%>
+
+<button data-stripe='payment'>Pay Deposit <%=number_to_currency(@listing.deposit)%></button>
+<script src="https://js.stripe.com/v3/"></script>
+
+<script>
+  document
+    .querySelector("[data-stripe='payment']")
+    .addEventListener("click", () => {
+      const stripe = Stripe(
+        "<%= Rails.application.credentials.dig(:stripe, :public_key) %>"
+      );
+
+      stripe.redirectToCheckout({
+        sessionId: "<%= @session_id %>"
+      });
+    });
+</script>
+
+</div>
+</div>
